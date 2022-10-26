@@ -13,7 +13,7 @@ app.get("/", (req, res) => {
 app.get("/courses", (req, res) => {
   res.send(allCourse);
 });
-
+              
 //single courses
 app.get("/courses/:id", (req, res) => {
   const id = req.params.id;
@@ -24,3 +24,4 @@ app.get("/courses/:id", (req, res) => {
 app.listen(Port, () => {
   console.log("Pro Learner Server is Running....");
 });
+                
