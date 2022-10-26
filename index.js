@@ -5,18 +5,24 @@ app.use(cors());
 
 const Port = process.env.Port || 5000;
 
-//data get
-app.get("/", (req, res, next) => {
-  res.send("Assignment 10 Server is Running");
+const allCourse = require("./data/courses.json");
+
+app.get("/", (req, res) => {
+  res.send("Show Pro Learner in UI....");
 });
 
+//all data send ui
+app.get("/courses", (req, res) => {
+  res.send(allCourse);
+});
 
-
-
-
-
-
+//single courses
+app.get("/courses/:id", (req, res) => {
+  const id = req.params.id;
+  const selectedCourse = allCourse.find((course) => course.id == id);
+  res.send(selectedCourse);
+});
 
 app.listen(Port, () => {
-  console.log("Assignment 10 Server is Running", Port);
+  console.log("Pro Learner Server is Running....");
 });
